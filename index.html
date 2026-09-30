@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nebo Café — Specialty Coffee & Kitchen</title>
+    <meta
+      name="description"
+      content="Premium coffee shop experience crafted for modern coffee lovers. Order online, build your own drink, and enjoy Nebo Café from anywhere."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a href="#home" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></span>
+          <span>
+            <strong>Nebo Café</strong>
+            <small>Specialty coffee</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="nav-links">
+          <a href="#home" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#menu">Menu</a>
+          <a href="#build">Build Your Drink</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#offers">Offers</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#reservation">Reservation</a>
+          <a href="#contacts">Contact</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <button id="searchToggle" class="icon-btn" aria-label="Search products">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button id="ordersToggle" class="icon-btn" aria-label="My orders">
+            <i class="fa-solid fa-receipt"></i>
+          </button>
+          <button id="cartToggle" class="icon-btn cart-icon-btn" aria-label="Open cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span id="cartCount" class="cart-count">0</span>
+          </button>
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </header>
+
+      <div id="searchBar" class="search-bar">
+        <div class="search-bar-inner">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="searchInput" type="text" placeholder="Search by name, category, or SKU…" />
+          <button id="searchClose" class="icon-btn" aria-label="Close search">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <main>
+        <section id="home" class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Crafted with calm, served with warmth</p>
+            <h1>Elevated coffee rituals in a modern sanctuary.</h1>
+            <p>
+              Discover rare beans, signature pours, and an intimate atmosphere
+              designed for slow sips and warm conversations. Order online for
+              dine-in, take away, or delivery.
+            </p>
+            <div class="hero-actions">
+              <a href="#menu" class="btn btn-dark">View Menu</a>
+              <a href="#reservation" class="btn btn-light">Reserve a Table</a>
+            </div>
+            <div class="hero-stats">
+              <div><strong>12+</strong><span>Signature items</span></div>
+              <div><strong>4.8</strong><span>Average rating</span></div>
+              <div><strong>15 min</strong><span>Avg. prep time</span></div>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+              alt="Artisan coffee cup"
+            />
+          </div>
+        </section>
+
+        <section id="about" class="about-section">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80"
+              alt="Interior of Nebo Café"
+            />
+          </div>
+          <div class="about-copy">
+            <p class="eyebrow">About Us</p>
+            <h2>A quiet corner built around the ritual of good coffee.</h2>
+            <p>
+              Nebo Café began as a single roaster's cart and grew into a
+              neighborhood sanctuary. We source directly from small-lot farms,
+              roast in-house, and pull every shot with intention. Every cup is
+              a small act of craft.
+            </p>
+            <ul class="about-points">
+              <li><i class="fa-solid fa-seedling"></i> Direct-trade, single-origin beans</li>
+              <li><i class="fa-solid fa-fire-flame-curved"></i> Roasted fresh weekly, on site</li>
+              <li><i class="fa-solid fa-leaf"></i> Locally baked pastries, daily</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="menu" class="menu-section">
+          <div class="section-heading">
+            <p class="eyebrow">Our Menu</p>
+            <h2>Explore our delicious offerings</h2>
+            <p class="subtitle">
+              A thoughtful selection of crafted beverages, food, and desserts.
+            </p>
+          </div>
+
+          <div class="filter-row" role="tablist" aria-label="Menu categories">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="Coffee">Coffee</button>
+            <button class="filter-btn" data-category="Food">Food</button>
+            <button class="filter-btn" data-category="Desserts">Desserts</button>
+          </div>
+
+          <div id="productGrid" class="product-grid"></div>
+          <p id="noResults" class="no-results" hidden>No products match your search.</p>
+        </section>
+
+        <section id="build" class="build-section">
+          <div class="section-heading">
+            <p class="eyebrow">Build Your Drink</p>
+            <h2>Make it exactly yours</h2>
+            <p class="subtitle">
+              Pick a base, size, temperature, sugar, and ice — we'll do the rest.
+            </p>
+          </div>
+
+          <div class="builder">
+            <div class="builder-preview">
+              <img id="builderImage" src="" alt="Custom drink preview" />
+              <div class="builder-price">
+                <span>Your price</span>
+                <strong id="builderPrice">$0.00</strong>
+              </div>
+            </div>
+
+            <div class="builder-options">
+              <div class="builder-group">
+                <label>Base coffee</label>
+                <select id="builderBase"></select>
+              </div>
+
+              <div class="builder-group">
+                <label>Size</label>
+                <div class="chip-row" id="builderSize">
+                  <button class="chip active" data-value="Small">Small</button>
+                  <button class="chip" data-value="Medium">Medium</button>
+                  <button class="chip" data-value="Large">Large</button>
+                </div>
+              </div>
+
+              <div class="builder-group">
+                <label>Temperature</label>
+                <div class="chip-row" id="builderTemp">
+                  <button class="chip active" data-value="Hot">Hot</button>
+                  <button class="chip" data-value="Iced">Iced</button>
+                </div>
+              </div>
+
+              <div class="builder-group">
+                <label>Sugar</label>
+                <div class="chip-row" id="builderSugar">
+                  <button class="chip" data-value="0%">0%</button>
+                  <button class="chip active" data-value="25%">25%</button>
+                  <button class="chip" data-value="50%">50%</button>
+                  <button class="chip" data-value="75%">75%</button>
+                  <button class="chip" data-value="100%">100%</button>
+                </div>
+              </div>
+
+              <div class="builder-group">
+                <label>Ice</label>
+                <div class="chip-row" id="builderIce">
+                  <button class="chip" data-value="None">None</button>
+                  <button class="chip active" data-value="Normal">Normal</button>
+                  <button class="chip" data-value="Less">Less</button>
+                  <button class="chip" data-value="Extra">Extra</button>
+                </div>
+              </div>
+
+              <div class="builder-group quantity-row">
+                <label>Quantity</label>
+                <div class="stepper">
+                  <button id="builderQtyMinus" type="button">−</button>
+                  <span id="builderQty">1</span>
+                  <button id="builderQtyPlus" type="button">+</button>
+                </div>
+              </div>
+
+              <button id="builderAdd" class="btn btn-dark full-width">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+          <div class="section-heading">
+            <p class="eyebrow">Gallery</p>
+            <h2>Moments from the café</h2>
+          </div>
+          <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="Pour over coffee" />
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=80" alt="Café interior" />
+            <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=700&q=80" alt="Espresso shot" />
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=80" alt="Latte art" />
+            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=700&q=80" alt="Coffee beans" />
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80" alt="Fresh pastries" />
+          </div>
+        </section>
+
+        <section id="offers" class="offers-section">
+          <div class="section-heading">
+            <p class="eyebrow">Offers</p>
+            <h2>Current promotions</h2>
+          </div>
+          <div class="offers-grid">
+            <div class="offer-card">
+              <i class="fa-solid fa-tag"></i>
+              <h3>10% Off Your Order</h3>
+              <p>Use code <strong>NEBO10</strong> at checkout for 10% off your entire order.</p>
+            </div>
+            <div class="offer-card">
+              <i class="fa-solid fa-mug-hot"></i>
+              <h3>Happy Hour, 3–5 PM</h3>
+              <p>All iced coffee drinks are crafted with a little extra care every afternoon.</p>
+            </div>
+            <div class="offer-card">
+              <i class="fa-solid fa-gift"></i>
+              <h3>Free Delivery Fridays</h3>
+              <p>Order for delivery on Fridays and we'll waive the delivery fee.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="reviews" class="reviews-section">
+          <div class="section-heading">
+            <p class="eyebrow">Reviews</p>
+            <h2>What our customers say</h2>
+          </div>
+          <div class="reviews-grid">
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>"The Artisan Latte is the best in town — smooth, balanced, and always consistent."</p>
+              <strong>— Sophal K.</strong>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>"Cozy space, friendly staff, and the tiramisu is worth the trip on its own."</p>
+              <strong>— Dara P.</strong>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★☆</div>
+              <p>"Ordering online was seamless and my delivery arrived hot and on time."</p>
+              <strong>— Lina T.</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="reservation" class="reservation-section">
+          <div class="section-heading">
+            <p class="eyebrow">Reservation</p>
+            <h2>Reserve a table</h2>
+            <p class="subtitle">Planning a visit? Let us know and we'll have your table ready.</p>
+          </div>
+          <form id="reservationForm" class="reservation-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="resName">Full Name</label>
+                <input id="resName" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="resPhone">Phone</label>
+                <input id="resPhone" type="tel" placeholder="Phone number" required />
+              </div>
+              <div class="field">
+                <label for="resDate">Date</label>
+                <input id="resDate" type="date" required />
+              </div>
+              <div class="field">
+                <label for="resTime">Time</label>
+                <input id="resTime" type="time" required />
+              </div>
+              <div class="field">
+                <label for="resGuests">Guests</label>
+                <input id="resGuests" type="number" min="1" max="12" value="2" required />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-dark">Confirm Reservation</button>
+            <p id="reservationMsg" class="form-msg" hidden></p>
+          </form>
+        </section>
+
+        <section id="contacts" class="contact-section">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>Get in touch</h2>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <p><i class="fa-solid fa-location-dot"></i> 12 Riverside Blvd, Phnom Penh, Cambodia</p>
+              <p><i class="fa-solid fa-phone"></i> +855 888 111 731</p>
+              <p><i class="fa-solid fa-envelope"></i> hello@nebocafe.com</p>
+              <p><i class="fa-solid fa-clock"></i> Daily, 7:00 AM – 8:00 PM</p>
+            </div>
+            <form id="contactForm" class="contact-form">
+              <div class="field">
+                <label for="contactName">Name</label>
+                <input id="contactName" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="contactEmail">Email</label>
+                <input id="contactEmail" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" rows="4" placeholder="How can we help?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark">Send Message</button>
+              <p id="contactMsg" class="form-msg" hidden></p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; 2026 Nebo Café. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartOverlay" class="overlay"></div>
+    <aside id="cartSidebar" class="cart-sidebar" aria-label="Shopping cart">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="closeCart" class="icon-btn" aria-label="Close cart">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="coupon-row">
+          <input id="couponInput" type="text" placeholder="Enter coupon code" />
+          <button id="applyCoupon" class="btn btn-light">Apply</button>
+        </div>
+        <p id="couponMsg" class="coupon-msg" hidden></p>
+        <div class="cart-summary" id="cartSummary">
+          <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+          <div><span>Tax (10%)</span><strong id="tax">$0.00</strong></div>
+          <div><span>Delivery</span><strong id="delivery">$0.00</strong></div>
+          <div id="discountRow" hidden><span>Discount</span><strong id="discount">-$0.00</strong></div>
+          <div class="grand-total"><span>Total</span><strong id="grandTotal">$0.00</strong></div>
+        </div>
+        <button id="checkoutBtn" class="btn btn-dark full-width">Proceed to Checkout</button>
+      </div>
+    </aside>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" aria-label="Close product details">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card checkout-card" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+        <button class="modal-close" id="checkoutClose" aria-label="Close checkout">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 id="checkoutTitle">Checkout</h3>
+
+        <form id="checkoutForm">
+          <div class="checkout-layout">
+            <div class="checkout-form-col">
+              <h4>Customer Information</h4>
+              <div class="field">
+                <label for="custName">Full Name</label>
+                <input id="custName" type="text" placeholder="Full name" required />
+              </div>
+              <div class="field">
+                <label for="custPhone">Phone Number</label>
+                <input id="custPhone" type="tel" placeholder="Phone number" required />
+              </div>
+              <div class="field">
+                <label for="custEmail">Email</label>
+                <input id="custEmail" type="email" placeholder="Email address" required />
+              </div>
+              <div class="field">
+                <label for="custAddress">Address</label>
+                <input id="custAddress" type="text" placeholder="Delivery / venue address" required />
+              </div>
+
+              <h4>Order Type</h4>
+              <div class="radio-row" id="orderTypeRow">
+                <label class="radio-option"><input type="radio" name="orderType" value="Dine In" checked /> Dine In</label>
+                <label class="radio-option"><input type="radio" name="orderType" value="Take Away" /> Take Away</label>
+                <label class="radio-option"><input type="radio" name="orderType" value="Delivery" /> Delivery</label>
+              </div>
+
+              <h4>Payment Method</h4>
+              <div class="radio-row" id="paymentRow">
+                <label class="radio-option"><input type="radio" name="payment" value="Cash" checked /> Cash</label>
+                <label class="radio-option"><input type="radio" name="payment" value="Credit Card" /> Credit Card</label>
+                <label class="radio-option"><input type="radio" name="payment" value="ABA Pay" /> ABA Pay</label>
+                <label class="radio-option"><input type="radio" name="payment" value="KHQR" /> KHQR</label>
+              </div>
+            </div>
+
+            <div class="checkout-summary-col">
+              <h4>Order Summary</h4>
+              <div id="checkoutItems" class="checkout-items"></div>
+              <div class="cart-summary" id="checkoutSummary">
+                <div><span>Subtotal</span><strong id="checkoutSubtotal">$0.00</strong></div>
+                <div><span>Tax (10%)</span><strong id="checkoutTax">$0.00</strong></div>
+                <div><span>Delivery</span><strong id="checkoutDelivery">$0.00</strong></div>
+                <div id="checkoutDiscountRow" hidden><span>Discount</span><strong id="checkoutDiscount">-$0.00</strong></div>
+                <div class="grand-total"><span>Total</span><strong id="checkoutTotal">$0.00</strong></div>
+              </div>
+              <p id="checkoutError" class="form-msg error" hidden></p>
+              <button type="submit" class="btn btn-dark full-width">Place Order</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card success-card" role="dialog" aria-modal="true">
+        <button class="modal-close" id="successClose" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="success-body">
+          <i class="fa-solid fa-circle-check"></i>
+          <h3>Order Successfully Placed!</h3>
+          <p>Order Number</p>
+          <strong id="successOrderNumber"></strong>
+          <p class="success-thanks">Thank you for ordering from Nebo Café.</p>
+          <button id="viewOrdersBtn" class="btn btn-light">View My Orders</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Orders Modal -->
+    <div id="ordersModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card orders-card" role="dialog" aria-modal="true">
+        <button class="modal-close" id="ordersClose" aria-label="Close my orders">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3>My Orders</h3>
+        <div id="ordersList" class="orders-list"></div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
